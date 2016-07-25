@@ -110,11 +110,11 @@ div#myNavbar {
                  <div>
                  <input type="hidden" id="client_id" value="client_id" ng-model="client_id">
                  <input type="hidden" id="conversationID" value="conversationID" ng-model="conversationID">
-                 <div class="row msg_container base_receive" ng-show="welcomeMsg" >
+                 <div class="row msg_container base_receive" ng-show="welcomeMsg">
                        
                         <div class="col-md-10 col-xs-10" >
-                            <div id="recieve" class="messages msg_receive">
-                              {{messageDefault}}
+                            <div id="recieve" class="messages msg_receive" ng-repeat="default in messageDefault">
+                              {{default}}
                             </div>
                         </div>
                          <div class="col-md-2 col-xs-2 avatar" ng-show="image1">
@@ -141,8 +141,8 @@ div#myNavbar {
                     <div class="row msg_container base_receive">
                         
                         <div class="col-md-10 col-xs-10">
-                            <div id="recieve" class="messages msg_receive">
-                               {{message.value}}
+                            <div id="recieve" class="messages msg_receive" ng-repeat="messageValue in message.value">
+                               {{messageValue}}
                             </div>
                         </div>
                         <div class="col-md-2 col-xs-2 avatar" ng-show="image3">

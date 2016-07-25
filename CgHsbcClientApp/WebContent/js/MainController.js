@@ -26,15 +26,15 @@
 	 
 	 $scope.welcome=function(){
 	 $http({
-				url : 'http://localhost:8089/bluemixCode/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
+				url : 'http://localhost:8060/CgHsbcDialogService/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
 				method : "GET"
 			}).then(function(response) {
 				console.log("response is"+response.data.response);
 				
 				$scope.client_id=response.data.client_id;
-				$scope.conversationID=response.data.conversationID;
+				$scope.conversationID=response.data.conversation_id;
 				$scope.image1=true;
-				$scope.messageDefault =response.data.response[0];
+				$scope.messageDefault =response.data.response;
 				$scope.welcomeMsg=true;
 				//alert($scope.messageDefault);
 			}, function(response) {
@@ -76,7 +76,7 @@
 			$scope.load=true;*/
 		};
 		  
-	  $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
+	  $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8; Access-Control-Allow-Origin:* ";
 		
 	  $scope.sendPost = function() {
 		  console.log("inside sendPost");
@@ -86,13 +86,13 @@
 			 $scope.load=true;*/
 			var theObject = { input:$scope.messageRecieved.key ,client_id:$scope.client_id,conversation_id: $scope.conversationID};
 			$http({
-				url : 'http://localhost:8089/bluemixCode/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
+				url : 'http://localhost:8060/CgHsbcDialogService/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
 				method : "POST"
 			}).then(function(response) {
 				console.log("inside server");
 				$scope.client_id=response.data.client_id;
-				$scope.conversationID=response.data.conversationID;				
-				$scope.messageRecieved.value = response.data.response[0];
+				$scope.conversationID=response.data.conversation_id;				
+				$scope.messageRecieved.value = response.data.response;
 				console.log($scope.messageRecieved.value);
 				console.log($scope.messageRecieved.key);
 				$scope.load=false;
