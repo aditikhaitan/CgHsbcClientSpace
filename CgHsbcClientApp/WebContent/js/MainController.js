@@ -33,8 +33,8 @@
 				
 				$scope.client_id=response.data.client_id;
 				$scope.conversationID=response.data.conversation_id;
-				$scope.image1=true;
 				$scope.messageDefault =response.data.response;
+				$scope.image1=true;
 				$scope.welcomeMsg=true;
 				//alert($scope.messageDefault);
 			}, function(response) {
@@ -62,8 +62,8 @@
 		 if(!$scope.messageBody==""){
 			 console.log("messageBody="+$scope.messageBody);
 			 $scope.messageRecieved.key=$scope.messageBody;
-			 $scope.messages.push($scope.messageRecieved);
-			 $scope.load=true;
+			 //$scope.messages.push($scope.messageRecieved);
+			 $scope.load=false;
 			 $scope.image2=true;
 				$scope.messageBody="";
 				
@@ -81,6 +81,7 @@
 	  $scope.sendPost = function() {
 		  console.log("inside sendPost");
 			$scope.beforeClick();
+			$scope.messages.push($scope.messageRecieved);
 			console.log($scope.messageRecieved.key);
 			/*
 			 $scope.load=true;*/
@@ -91,14 +92,15 @@
 			}).then(function(response) {
 				console.log("inside server");
 				$scope.client_id=response.data.client_id;
-				$scope.conversationID=response.data.conversation_id;				
+				$scope.conversationID=response.data.conversation_id;
+				/* $scope.messages.push($scope.messageRecieved);*/
 				$scope.messageRecieved.value = response.data.response;
 				console.log($scope.messageRecieved.value);
 				console.log($scope.messageRecieved.key);
 				$scope.load=false;
-				$scope.image3=true;
-			   // $scope.messages.push($scope.messageRecieved);
+			   
 				$scope.messageRecieved={};
+				$scope.image3=true;
 				
 			}, function(response) {
 				//fail case
