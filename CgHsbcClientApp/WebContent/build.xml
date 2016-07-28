@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="CgHsbcClientApp" basedir="." default="build">
+    <property file="build.properties"/>
+    <property name="src.dir" value="src" />
+    <property name="web.dir" value="WebContent" />
+    <property name="name" value="CgHsbcClientApp" />
+    <property name="build.dir" value="${basedir}/build"/>
+	
+	<target name="init">
+		<mkdir dir="build/classes"/>
+		<mkdir dir="dist" />
+	</target>
+	
+    <path id="project-classpath">
+
+    	<!--  here give path for jar repository -->
+    	<fileset dir="${server.lib}">
+    		<include name="servlet*.jar" />
+    	</fileset>
+    	<fileset dir="${web.dir}/WEB-INF/lib">
+    		<include name="*.jar" />
+    	</fileset>
+    	<pathelement path="${build.dir}" />
+    </path>
+
+    <target name="build" depends="compile" description="build project, but first compile it">
+         <war destfile="build/${name}.war" webxml="${web.dir}/WEB-INF/web.xml">
+            <!-- <lib dir="${basedir}/${web.dir}/WEB-INF/lib"/>-->
+             <classes dir="${build.dir}/classes" />
+            <fileset dir="${web.dir}">
+                <include name="**/*.*"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="compile" depends="init" description="Compile java files and place them webContents/web-inf/">
+    	<mkdir dir="${build.dir}/classes"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}/classes" executable="C:\Program Files\Java\jdk1.8.0_101\bin\javac" compiler="javac1.8" failonerror="true">
+           
+        </javac>
+    </target>
+
+    <target name="clean">
+    	 <delete dir="${build.dir}" failonerror="true"/>
+    </target>
+</project>

@@ -62,11 +62,11 @@
 		 if(!$scope.messageBody==""){
 			 console.log("messageBody="+$scope.messageBody);
 			 $scope.messageRecieved.key=$scope.messageBody;
-			 //$scope.messages.push($scope.messageRecieved);
-			 $scope.load=false;
+			 $scope.messages.push($scope.messageRecieved);
+			 
 			 $scope.image2=true;
 				$scope.messageBody="";
-				
+				$scope.load=true;
 		 }
 			//alert("welcome");
 			/*$scope.messageRecieved.value="";
@@ -81,7 +81,7 @@
 	  $scope.sendPost = function() {
 		  console.log("inside sendPost");
 			$scope.beforeClick();
-			$scope.messages.push($scope.messageRecieved);
+			
 			console.log($scope.messageRecieved.key);
 			/*
 			 $scope.load=true;*/
@@ -98,7 +98,6 @@
 				console.log($scope.messageRecieved.value);
 				console.log($scope.messageRecieved.key);
 				$scope.load=false;
-			   
 				$scope.messageRecieved={};
 				$scope.image3=true;
 				
@@ -106,8 +105,9 @@
 				//fail case
 				$scope.message = response;
 			});
-
+			
 		  };
+		  
 		  $scope.previous=function(){
 				 console.log($scope.messageBody1);
 				 if($scope.messageBody1==""||$scope.messageBody1==undefined){
@@ -126,4 +126,5 @@
 			 };
 			 
 			 $scope.previous();
+			 
     }]);
