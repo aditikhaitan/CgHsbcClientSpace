@@ -1,0 +1,9 @@
+applications:
+ -buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  memory: 512M
+  instances: 1
+  domain: api.ng.mybluemix.net
+  name: CgHsbcClientApp
+  host: aditiChatApp-CgHsbcDialogClient
+  disk_quota: 1024M
+  stack: cflinuxfs2
