@@ -20,7 +20,7 @@
 	 console.log($scope.messageBody1);
 	}
 	 $scope.initi();
-	 
+	 $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8; Access-Control-Allow-Origin:* ";
 	 var theObject = { input:"" ,client_id:$scope.client_id,conversation_id: $scope.conversationID};
 	 
 	 
@@ -76,7 +76,7 @@
 			$scope.load=true;*/
 		};
 		  
-	  $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8; Access-Control-Allow-Origin:* ";
+	 
 		
 	  $scope.sendPost = function() {
 		  console.log("inside sendPost");
