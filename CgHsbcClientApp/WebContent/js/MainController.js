@@ -26,7 +26,7 @@
 	 
 	 $scope.welcome=function(){
 	 $http({
-				url : 'http://localhost:8060/CgHsbcDialogService/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
+				url : 'http://cghsbcclientspace.mybluemix.net/CgHsbcDialogService/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
 				method : "GET"
 			}).then(function(response) {
 				console.log("response is"+response.data.response);
