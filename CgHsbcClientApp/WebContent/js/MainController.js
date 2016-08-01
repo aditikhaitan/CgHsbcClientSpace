@@ -87,7 +87,7 @@
 			 $scope.load=true;*/
 			var theObject = { input:$scope.messageRecieved.key ,client_id:$scope.client_id,conversation_id: $scope.conversationID};
 			$http({
-				url : 'http://localhost:8060/CgHsbcDialogService/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
+				url : 'http://cghsbcclientspace.mybluemix.net/CgHsbcDialogService/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
 				method : "POST"
 			}).then(function(response) {
 				console.log("inside server");
