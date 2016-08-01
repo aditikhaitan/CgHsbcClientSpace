@@ -20,7 +20,7 @@
 	 console.log($scope.messageBody1);
 	}
 	 $scope.initi();
-	 $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8; Access-Control-Allow-Origin:http://cghsbcclientspace.mybluemix.net ";
+	 $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded; charset=utf-8";
 	 var theObject = { input:"" ,client_id:$scope.client_id,conversation_id: $scope.conversationID};
 	 
 	 
