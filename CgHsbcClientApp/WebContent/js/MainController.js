@@ -27,7 +27,7 @@
 	 $scope.welcome=function(){
 	 $http({
 				
-				url : 'http://cghsbcdialogueservice.mybluemix.net/CgHsbcDialogService/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
+				url : 'http://cghsbcdialogueservice.mybluemix.net/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
 				method : "GET"
 			}).then(function(response) {
 				console.log("response is"+response.data.response);
