@@ -27,7 +27,7 @@
 	 $scope.welcome=function(){
 	 $http({
 				
-				url : 'http://cghsbcclientspace.mybluemix.net/CgHsbcDialogService//src/com/dialog/hsbc/controllers/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
+				url : 'http://cghsbcdialogueservice.mybluemix.net/CgHsbcDialogService/chat/clientVerify?clientMSG='+JSON.stringify(theObject),
 				method : "GET"
 			}).then(function(response) {
 				console.log("response is"+response.data.response);
@@ -88,7 +88,7 @@
 			 $scope.load=true;*/
 			var theObject = { input:$scope.messageRecieved.key ,client_id:$scope.client_id,conversation_id: $scope.conversationID};
 			$http({
-				url : 'http://cghsbcclientspace.mybluemix.net/CgHsbcDialogService/src/com/dialog/hsbc/controllers/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
+				url : 'http://cghsbcdialogueservice.mybluemix.net/CgHsbcDialogService/chat/clientResponse?clientMSG='+JSON.stringify(theObject),
 				method : "POST"
 			}).then(function(response) {
 				console.log("inside server");
